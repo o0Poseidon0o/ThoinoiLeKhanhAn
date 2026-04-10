@@ -114,27 +114,36 @@ document.addEventListener('DOMContentLoaded', () => {
         balloonContainer.appendChild(balloon);
     }
 
-    // --- 5. Tilt Effect applied to cards via JS on scroll/hover ---
-    // Vanilla JS 3D tilt effect for cards named 'tilt-card'
+    // --- 5. Interactive 3D Tilt & Spotlight Effect ---
     const tiltCards = document.querySelectorAll('.tilt-card');
     
     tiltCards.forEach(card => {
+        const spotlight = card.querySelector('.spotlight');
+
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within the element.
-            const y = e.clientY - rect.top;  // y position within the element.
+            const x = e.clientX - rect.left; 
+            const y = e.clientY - rect.top;  
 
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -5; // max rotation 5deg
-            const rotateY = ((x - centerX) / centerX) * 5;
+            const rotateX = ((y - centerY) / centerY) * -7; 
+            const rotateY = ((x - centerX) / centerX) * 7;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+
+            if(spotlight) {
+                // Ánh sáng di chuyển theo chuột
+                spotlight.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.7) 0%, transparent 60%)`;
+            }
         });
 
         card.addEventListener('mouseleave', () => {
             card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            if(spotlight) {
+                spotlight.style.background = `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, transparent 60%)`;
+            }
         });
     });
 
@@ -259,6 +268,60 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animateParticles);
         }
         animateParticles();
+    }
+
+    // --- 8. Smooth Lightbox Gallery ---
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxContent = document.getElementById('lightbox-content');
+
+    if(galleryItems.length > 0 && lightbox) {
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                if(img) {
+                    lightboxImg.src = img.src;
+                    lightbox.classList.remove('hidden');
+                    lightbox.classList.add('flex');
+                    document.body.style.overflow = 'hidden'; // Ngăn cuộn trang
+                    
+                    // Simple timeout for animation transition
+                    setTimeout(() => {
+                        lightbox.classList.remove('opacity-0');
+                        lightbox.classList.add('opacity-100');
+                        if(lightboxContent) {
+                            lightboxContent.classList.remove('scale-95');
+                            lightboxContent.classList.add('scale-100');
+                        }
+                    }, 10);
+                }
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('opacity-100');
+            lightbox.classList.add('opacity-0');
+            if(lightboxContent) {
+                lightboxContent.classList.remove('scale-100');
+                lightboxContent.classList.add('scale-95');
+            }
+            document.body.style.overflow = 'auto'; // Cho phép cuộn lại
+            
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                lightboxImg.src = '';
+            }, 300);
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox || e.target === lightboxContent?.parentElement) {
+                closeLightbox();
+            }
+        });
     }
 
 });

@@ -126,3 +126,28 @@ html {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-15px) rotate(5deg); }
 }
+
+/* Gallery Spotlight & Hover Effects */
+.gallery-item .spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 20;
+  mix-blend-mode: overlay;
+}
+.gallery-item:hover .spotlight {
+  opacity: 1;
+}
+.gallery-item img {
+  transform: scale(1.02);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.gallery-item:hover img {
+    transform: scale(1.12); /* Zoom nhẹ khi hover kết hợp với Tilt */
+}
