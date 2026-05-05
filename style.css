@@ -151,3 +151,12 @@ html {
 .gallery-item:hover img {
     transform: scale(1.12); /* Zoom nhẹ khi hover kết hợp với Tilt */
 }
+
+/* Swiper JS Customizations */
+.swiper-pagination-bullet-active {
+    background: #ff7eb3 !important;
+}
+.swiper-pagination-bullet {
+    background: #e8b4b8;
+    opacity: 0.8;
+}

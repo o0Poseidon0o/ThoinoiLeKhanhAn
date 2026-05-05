@@ -44,6 +44,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body class="bg-softCream font-sans text-gray-700 antialiased overflow-x-hidden relative">
@@ -518,145 +521,106 @@
                 Nhấn vào ảnh để xem chi tiết nhé 💕</p>
         </div>
 
-        <!-- Marquee Slider -->
-        <div class="relative w-full overflow-hidden flex pb-8 group">
-            <!-- Fade overlays for edges -->
-            <div
-                class="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-softCream to-transparent z-10 pointer-events-none">
-            </div>
-            <div
-                class="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-softCream to-transparent z-10 pointer-events-none">
-            </div>
-
-            <div class="animate-marquee flex gap-6 group-hover:[animation-play-state:paused]">
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/1.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 1">
-                    <div class="spotlight"></div>
+        <!-- Swiper 3D Coverflow Slider -->
+        <div class="swiper gallery-swiper w-full pt-12 pb-20 px-4 group">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-deepPink/50 to-transparent opacity-0 hover:opacity-100 transition duration-500 flex items-end justify-center pb-8 z-10">
-                        <span class="text-white font-script text-4xl drop-shadow-md">Tủm tỉm...</span>
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/1.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 1">
+                        <div class="spotlight"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-deepPink/50 to-transparent opacity-0 hover:opacity-100 transition duration-500 flex items-end justify-center pb-8 z-10">
+                            <span class="text-white font-script text-4xl drop-shadow-md">Tủm tỉm...</span>
+                        </div>
                     </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/2.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 2">
-                    <div class="spotlight"></div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/2.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 2">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/3.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 3">
-                    <div class="spotlight"></div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/3.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 3">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/4.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 4">
-                    <div class="spotlight"></div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/4.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 4">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/5.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 5">
-                    <div class="spotlight"></div>
+                <!-- Slide 5 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/5.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 5">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/6.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 6">
-                    <div class="spotlight"></div>
+                <!-- Slide 6 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/6.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 6">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/7.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 7">
-                    <div class="spotlight"></div>
+                <!-- Slide 7 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/7.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 7">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/8.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 8">
-                    <div class="spotlight"></div>
+                <!-- Slide 8 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/8.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 8">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/9.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 9">
-                    <div class="spotlight"></div>
+                <!-- Slide 9 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/9.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 9">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/10.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 10">
-                    <div class="spotlight"></div>
-                </div>
-            </div>
-            <!-- Duplicate Marquee Track -->
-            <div class="animate-marquee tracking-delay flex gap-6 ml-6 group-hover:[animation-play-state:paused]">
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/1.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 1">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/2.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 2">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/3.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 3">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/4.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 4">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/5.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 5">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/6.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 6">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/7.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 7">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/8.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 8">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-64 h-80 md:w-80 md:h-96 rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80">
-                    <img src="./images/khoanhkhac/9.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 9">
-                    <div class="spotlight"></div>
-                </div>
-                <div
-                    class="gallery-item tilt-card w-72 h-[22rem] md:w-[22rem] md:h-[26rem] rounded-[2.5rem] overflow-hidden shadow-xl flex-shrink-0 relative cursor-pointer border-[6px] border-white/80 mt-6">
-                    <img src="./images/khoanhkhac/10.jpg"
-                        class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 10">
-                    <div class="spotlight"></div>
+                <!-- Slide 10 -->
+                <div class="swiper-slide w-64 h-80 md:w-80 md:h-96">
+                    <div
+                        class="gallery-item w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative cursor-pointer border-[6px] border-white/80">
+                        <img src="./images/khoanhkhac/10.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700" alt="Ảnh 10">
+                        <div class="spotlight"></div>
+                    </div>
                 </div>
             </div>
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination !bottom-4"></div>
         </div>
     </section>
 
@@ -714,6 +678,9 @@
         <p class="font-display font-bold text-gray-500 mb-2">Thôi nôi bé Lê Khánh Ân</p>
         <p class="text-xs text-gray-400 font-semibold tracking-wider uppercase">&copy; 2026. Một ngày thật vui!</p>
     </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Confetti JS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>

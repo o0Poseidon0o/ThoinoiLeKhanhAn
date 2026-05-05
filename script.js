@@ -322,6 +322,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeLightbox();
             }
         });
+    // --- 9. Initialize Swiper 3D Coverflow Gallery ---
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.gallery-swiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            coverflowEffect: {
+                rotate: 30, // Góc xoay của ảnh
+                stretch: 0, // Khoảng cách giữa các ảnh
+                depth: 200, // Chiều sâu 3D
+                modifier: 1.5, // Cường độ hiệu ứng
+                slideShadows: true, // Đổ bóng mờ cho các ảnh phía sau
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false, // Tiếp tục tự chạy sau khi vuốt
+            }
+        });
     }
-
+    } // Đóng if (galleryItems.length > 0 && lightbox)
 });
