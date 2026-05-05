@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- 1. Countdown Timer (VIP) ---
-    const partyDate = new Date("Jul 17, 2026 18:00:00").getTime();
+    const partyDate = new Date("Jun 27, 2026 18:00:00").getTime();
 
     const countdownFunction = setInterval(() => {
         const now = new Date().getTime();
@@ -58,26 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. Confetti on button click ---
     const confettiBtn = document.getElementById('confetti-btn');
-    if(confettiBtn){
+    if (confettiBtn) {
         confettiBtn.addEventListener('click', () => {
             // Heart confetti
             const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
-            
+
             function randomInRange(min, max) {
                 return Math.random() * (max - min) + min;
             }
 
-            const interval = setInterval(function() {
+            const interval = setInterval(function () {
                 const particleCount = 50;
                 // since they fall down, start a bit higher than random
                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
             }, 250);
 
-            setTimeout(function() {
+            setTimeout(function () {
                 clearInterval(interval);
             }, 2000); // stop after 2s
-            
+
             // change button text to thank you
             confettiBtn.innerHTML = "Cảm ơn bạn rất nhiều! 💕";
             confettiBtn.classList.remove('from-deepPink');
@@ -100,14 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const size = Math.random() * 45 + 35; // 35px to 80px
         balloon.style.width = `${size}px`;
-        balloon.style.height = `${size * 1.25}px`; 
+        balloon.style.height = `${size * 1.25}px`;
 
         balloon.style.left = `${Math.random() * 95}vw`;
         balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        
+
         const duration = Math.random() * 15 + 15; // 15s to 30s for smooth, slow float
         const delay = Math.random() * 20; // scattered start times
-        
+
         balloon.style.animationDuration = `${duration}s`;
         balloon.style.animationDelay = `${delay}s`;
 
@@ -116,24 +116,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 5. Interactive 3D Tilt & Spotlight Effect ---
     const tiltCards = document.querySelectorAll('.tilt-card');
-    
+
     tiltCards.forEach(card => {
         const spotlight = card.querySelector('.spotlight');
 
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; 
-            const y = e.clientY - rect.top;  
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -7; 
+            const rotateX = ((y - centerY) / centerY) * -7;
             const rotateY = ((x - centerX) / centerX) * 7;
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
 
-            if(spotlight) {
+            if (spotlight) {
                 // Ánh sáng di chuyển theo chuột
                 spotlight.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.7) 0%, transparent 60%)`;
             }
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.addEventListener('mouseleave', () => {
             card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-            if(spotlight) {
+            if (spotlight) {
                 spotlight.style.background = `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, transparent 60%)`;
             }
         });
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Navbar Shrink effect on scroll ---
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-        if(window.scrollY > 50) {
+        if (window.scrollY > 50) {
             navbar.classList.add('py-1');
             navbar.classList.remove('py-3');
         } else {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Autoplay requires user interaction, so we listen to the first click anywhere
     document.body.addEventListener('click', () => {
-        if(!isPlaying && bgMusic) {
+        if (!isPlaying && bgMusic) {
             bgMusic.play().then(() => {
                 isPlaying = true;
                 musicIcon.classList.add('animate-[spin_4s_linear_infinite]');
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { once: true });
 
-    if(musicToggle) {
+    if (musicToggle) {
         musicToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             if (isPlaying) {
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let particles = [];
-        
+
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                if (this.size > 0.1) this.size -= 0.1; 
+                if (this.size > 0.1) this.size -= 0.1;
             }
             draw() {
                 ctx.fillStyle = this.color;
@@ -240,11 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
-                
+
                 // Mạng nhện kết nối dính hạt lại để tạo hiệu ứng thân rắn uốn lượn theo đuôi chuột
                 for (let j = i; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < 25) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 215, 0, ${1 - distance/25})`;
+                        ctx.strokeStyle = `rgba(255, 215, 0, ${1 - distance / 25})`;
                         ctx.lineWidth = particles[i].size / 3;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -277,21 +277,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxContent = document.getElementById('lightbox-content');
 
-    if(galleryItems.length > 0 && lightbox) {
+    if (galleryItems.length > 0 && lightbox) {
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
-                if(img) {
+                if (img) {
                     lightboxImg.src = img.src;
                     lightbox.classList.remove('hidden');
                     lightbox.classList.add('flex');
                     document.body.style.overflow = 'hidden'; // Ngăn cuộn trang
-                    
+
                     // Simple timeout for animation transition
                     setTimeout(() => {
                         lightbox.classList.remove('opacity-0');
                         lightbox.classList.add('opacity-100');
-                        if(lightboxContent) {
+                        if (lightboxContent) {
                             lightboxContent.classList.remove('scale-95');
                             lightboxContent.classList.add('scale-100');
                         }
@@ -303,12 +303,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeLightbox = () => {
             lightbox.classList.remove('opacity-100');
             lightbox.classList.add('opacity-0');
-            if(lightboxContent) {
+            if (lightboxContent) {
                 lightboxContent.classList.remove('scale-100');
                 lightboxContent.classList.add('scale-95');
             }
             document.body.style.overflow = 'auto'; // Cho phép cuộn lại
-            
+
             setTimeout(() => {
                 lightbox.classList.add('hidden');
                 lightbox.classList.remove('flex');
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         lightboxClose.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', (e) => {
-            if(e.target === lightbox || e.target === lightboxContent?.parentElement) {
+            if (e.target === lightbox || e.target === lightboxContent?.parentElement) {
                 closeLightbox();
             }
         });
